@@ -1,0 +1,36 @@
+
+.top-left {
+    background-position: 0% 0%;
+}
+
+.top-center {
+    background-position: 50% 0%;
+}
+
+.top-right {
+    background-position: 100% 0%;
+}
+
+.left-center {
+    background-position: 0% 50%;
+}
+
+.center-center {
+    background-position: 50% 50%;
+}
+
+.center-right {
+    background-position: 100% 50%;
+}
+
+.bottom-left {
+    background-position: 0% 100%;
+}
+
+.bottom-center {
+    background-position: 50% 100%;
+}
+
+.bottom-right {
+    background-position: 100% 100%;
+}

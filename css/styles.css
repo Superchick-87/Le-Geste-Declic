@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    font-family: "Open Sans", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.6em;
+    text-align: center;
+}
+
+legend {
+    font-size: 0.7em;
+    height: 30px;
+    max-width: 650px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 30px;
+}
+.containerDeclic {
+    display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+}
+.logoDeclic {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../images/LogoDeclic.png);
+    height: 30px;
+    width: 93px;
+}
+.logoSo {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../images/LogoSo.png);
+    height: 18px;
+    width: 93px;
+}
+.txtLengend{
+    margin-right: auto;
+}
+
+#currentDate,
+#textContainer,
+.rangeBarre {
+    display: none;
+}
+
+.containerText {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: flex-start;
+    height: 85vh;
+    width: 95%;
+}
+
+.txtIntro {
+    font-size: 2.2em;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    margin: 0px 0px 10px 0px;
+    line-height: 31px;
+    /* position: absolute;
+    top: 20px;
+    left: 10px;
+    z-index: 1000; */
+
+}
+
+.txtCap {
+    font-size: 2.4em;
+    font-weight: 900;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #4AA44D;
+    margin: 0px 0px 10px 0px;
+    word-wrap: break-word;
+}
+
+.txtMaigre {
+    /* font-size: 1em;
+    line-height: 1.5em; */
+    line-height: clamp(16px, 3vw, 24px);
+    font-size: clamp(14px, 2.8vw, 24px);
+    font-weight: lighter;
+    margin: 5px 0px 0px 0px;
+    width: 97%;
+}
+
+.txtGras {
+    font-size: 1.3em;
+    font-weight: bold;
+    width: 97%;
+    line-height: 1.3em;
+    margin: 0px 0px -15px 0px
+}
+
+.txtGrasGris {
+    font-size: 18vw;
+    font-weight: 900;
+    line-height: 15vw;
+    margin: 20px 0px 25px 0px;
+    /* letter-spacing: -0.8px; */
+    color: rgb(213 213 213);
+}
+
+mark {
+    background-color: #4AA44D;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.descriptif {
+    text-align: left;
+    color: white;
+}
+
+.slider-text {
+    display: none;
+}
+
+.slider-text.active {
+    display: block;
+}
+
+#imageContainer {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    /* height: 650px; */
+    height: 90vh;
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+.masque {
+    position: absolute;
+    border-radius: 15px;
+    width: 100%;
+    height: 90vh;
+    background-color: #000000;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    /* Masque appliqué */
+    /* -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%); */
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    border-radius: 10px;
+    background-color: #ffffff;
+
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* top: 0; */
+    left: 100%;
+    /* object-fit: cover; */
+    transition: left 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    /* Transition plus lente et aisée */
+}
+
+.slider-image.active {
+    left: 0;
+}
+
+.slider-image.prev {
+    left: -100%;
+}
+
+.slider-image.next {
+    left: 100%;
+}
+
+/* Style pour les flèches de navigation */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 0, 0, 0.61);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+    border-radius: 50%;
+    line-height: 10px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 18px;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+.rangeBarre {
+    position: relative;
+    width: 100%;
+    margin: 47px 0px 20px;
+    max-width: 600px;
+}
+
+.rangeGraduations {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    /* Ajustez cette valeur selon la hauteur du point par rapport à la barre */
+    width: 100%;
+    pointer-events: none;
+    /* Pour éviter les interférences avec l'input range */
+    transform: translateY(-50%);
+    /* Centrer verticalement */
+    /* max-width: 584px; */
+}
+
+.rangeGraduation {
+    width: 10px;
+    height: 10px;
+    background: #dbdbdb;
+    border-radius: 50%;
+    position: relative;
+}
+
+.current-date {
+    font-size: 1.8em;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#dates {
+    display: none;
+}
+
+#rangeSlider {
+    -webkit-appearance: none;
+    left: -10px;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .15s ease-in-out;
+    position: relative;
+    top: -4px;
+}
+
+#rangeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #ff0000;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    /* Assurez-vous que le curseur est au-dessus des graduations */
+}
+
+#rangeSlider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #ff0000;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    /* Assurez-vous que le curseur est au-dessus des graduations */
+}
+
+#textContainer {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+
+
+/* Au niveau le plus haut du code */
+@media screen and (max-width: 500px) {
+ .image{
+        background-position: 100% 0%;
+     }
+    button {
+        display: none;
+    }
+
+
+    .current-date {
+        font-size: 1.5em;
+        bottom: 17px;
+    }
+}
+/* Au niveau le plus haut du code */
+@media screen and (max-width: 400px) {
+    .image{
+           background-position: 100% 0%;
+        }
+   }
