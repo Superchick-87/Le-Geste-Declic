@@ -221,6 +221,7 @@
                     alert('Erreur lors du téléchargement du fichier.');
                 }
                 progressBar.style.display = 'none'; // Cacher la barre après l'upload
+                progressBar.value = 0;
             };
 
             xhr.send(formData);
