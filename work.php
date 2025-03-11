@@ -306,7 +306,7 @@
         // window.addEventListener("load", majImages);
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 
     <script>
         function exportToJpg(blocId) {
@@ -318,31 +318,35 @@
                 return;
             }
 
+            // Enlever tout fond ou colorer le fond en transparent
+            // bloc.style.backgroundColor = 'transparent';
 
-            // Utiliser html2canvas pour capturer le bloc en image
-            html2canvas(bloc, {
-                useCORS: true, // Autoriser les images externes
-                scale: 1, // Augmenter la résolution
-                allowTaint: true, // Autoriser le rendu des images externes en cas de restrictions CORS
-                logging: true, // Activer la journalisation pour le débogage
-                backgroundColor: null, // Garder la transparence du fond
-            }).then(canvas => {
+            // Utiliser dom-to-image pour capturer le bloc en image
+            domtoimage.toJpeg(bloc, {
+                quality: 0.95,      // Qualité de l'image (0 à 1)
+                // bgcolor: 'transparent'  // Fond transparent pour l'image capturée
+            })
+            .then(function (dataUrl) {
                 let link = document.createElement("a");
-                link.href = canvas.toDataURL("image/jpeg", 1); // Convertir en JPG avec qualité 90%
-                link.download = "Desktop_" + blocId + ".jpg"; // Nom du fichier suggéré pour le téléchargement
+                link.href = dataUrl; // Utilise le dataURL généré pour l'image
+                link.download = "Desktop_" + blocId + ".jpg"; // Nom du fichier pour le téléchargement
 
-                // Simuler un clic pour télécharger le fichier
+                // Simuler un clic pour télécharger l'image
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
 
-                alert("L'image a été téléchargée ! Enregistrez-la sur votre bureau manuellement.");
-            }).catch(err => {
-                console.error('Erreur lors de la capture du bloc : ', err);
+                alert("L'image a été téléchargée !");
+            })
+            .catch(function (error) {
+                console.error('Erreur lors de la capture du bloc : ', error);
                 alert("Une erreur est survenue lors de la capture de l'image.");
             });
-
         }
+
+
+
+
     </script>
 
 
