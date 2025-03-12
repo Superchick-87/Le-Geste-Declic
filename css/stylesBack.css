@@ -231,6 +231,7 @@ progress{
     justify-content: space-between;
     width: 95%;
     height: 98%;
+    overflow: hidden;
 }
 
 .txtIntro {
@@ -261,6 +262,8 @@ progress{
     margin: 0px 0px -10px 0px;
     letter-spacing: -0.8px;
     color: black;
+    display: inline;
+    /* background-color: aqua; */
 }
 
 .txtGrasGris {
@@ -284,7 +287,8 @@ mark {
     color: white;
     font-weight: bold;
     font-size: 35px;
-    /* padding: 0px 10px; */
+    display: inline;
+    padding: 0px 10px;
 }
 
 .bloc {

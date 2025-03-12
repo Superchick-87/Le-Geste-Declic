@@ -159,6 +159,7 @@
         </div>
     ';
     ?>
+
     <script>
         function changeImageClass(uniqueId, newClass) {
             var imageDiv = document.getElementById("bloc_imgg_" + uniqueId);
@@ -206,7 +207,7 @@
 
             const progressBar = document.getElementById('progressBar');
             progressBar.style.display = 'block'; // Afficher la barre de progression
-            
+
             xhr.upload.onprogress = function(event) {
                 if (event.lengthComputable) {
                     let percentComplete = (event.loaded / event.total) * 100;
@@ -300,55 +301,44 @@
                 });
             });
         }
-
         // Appeler la fonction majImages() dès que le DOM est chargé
         document.addEventListener('DOMContentLoaded', majImages);
         // window.addEventListener("load", majImages);
     </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <script>
         function exportToJpg(blocId) {
+            const now = new Date();
+            const formattedDate = 
+                String(now.getDate()).padStart(2, '0') + "" + 
+                String(now.getMonth() + 1).padStart(2, '0') + "" + 
+                now.getFullYear() + "_" + 
+                String(now.getHours()).padStart(2, '0') + "" + 
+                String(now.getMinutes()).padStart(2, '0') + "" + 
+                String(now.getSeconds()).padStart(2, '0');
+
             let bloc = document.getElementById(blocId);
-            let imageContainer = document.getElementById("imageContainer");
-
-            if (!bloc) {
-                alert("Bloc non trouvé !");
-                return;
-            }
-
-            // Enlever tout fond ou colorer le fond en transparent
-            // bloc.style.backgroundColor = 'transparent';
-
-            // Utiliser dom-to-image pour capturer le bloc en image
             domtoimage.toJpeg(bloc, {
-                quality: 0.95,      // Qualité de l'image (0 à 1)
-                // bgcolor: 'transparent'  // Fond transparent pour l'image capturée
+                quality: 1,
+                cacheBust: true
             })
             .then(function (dataUrl) {
                 let link = document.createElement("a");
-                link.href = dataUrl; // Utilise le dataURL généré pour l'image
-                link.download = "Desktop_" + blocId + ".jpg"; // Nom du fichier pour le téléchargement
-
-                // Simuler un clic pour télécharger l'image
+                link.href = dataUrl;
+                link.download = "Declic_Pict_" + formattedDate + ".jpg";
+                // link.download = "Declic_Pict_" + blocId + ".jpg";
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-
                 alert("L'image a été téléchargée !");
             })
             .catch(function (error) {
-                console.error('Erreur lors de la capture du bloc : ', error);
-                alert("Une erreur est survenue lors de la capture de l'image.");
+                console.error('Erreur lors de la capture : ', error.message, error);
+                alert("Une erreur est survenue : " + error.message);
             });
         }
-
-
-
-
     </script>
-
 
     <script>
         $(document).ready(function() {

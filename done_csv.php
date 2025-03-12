@@ -1,4 +1,9 @@
 <?php
+function custom_replace($input) {
+    $input = str_replace(["\r\n", "\n"], "*$#*", $input);
+    $input = str_replace("\x03", " ", $input);
+    return $input;
+}
 $csvFilePath = 'datas/datas.csv';
 
 // Vérifier si la requête est bien POST
@@ -40,12 +45,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Remplacer les retours à la ligne par `*$#*`
         $data[] = [
             'id' => $id,
-            'intro' => str_replace(["\r\n", "\n"], "*$#*", $intros[$index] ?? ''),
-            'introCap' => str_replace(["\r\n", "\n"], "*$#*", $introsCap[$index] ?? ''),
-            'contenuGras' => str_replace(["\r\n", "\n"], "*$#*", $contenusGras[$index] ?? ''),
-            'contenuGrasGris' => str_replace(["\r\n", "\n"], "*$#*", $contenusGrasGris[$index] ?? ''),
-            'contenuFondVert' => str_replace(["\r\n", "\n"], "*$#*", $contenusFondVert[$index] ?? ''),
-            'contenuMaigre' => str_replace(["\r\n", "\n"], "*$#*", $contenusMaigre[$index] ?? ''),
+            'intro' => custom_replace($intros[$index]),
+            'introCap' => custom_replace($introsCap[$index]),
+            'contenuGras' => custom_replace($contenusGras[$index]),
+            'contenuGrasGris' => custom_replace($contenusGrasGris[$index]),
+            'contenuFondVert' => custom_replace($contenusFondVert[$index]),
+            'contenuMaigre' => custom_replace($contenusMaigre[$index]),
             'image' => $imageName,
             'position' => $position // Ajouter la position
         ];
