@@ -1,7 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* @font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 100 900;
+
+    font-style: normal;
+    font-display: swap;
+} */
+
+/* @font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+} */
 
 body {
-    font-family: "Open Sans", serif;
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +35,8 @@ textarea {
     height: 50px;
     width: 98%;
 }
-input[type="number"]{
+
+input[type="number"] {
     display: block;
     width: 20px;
     height: 20px;
@@ -29,24 +46,27 @@ input[type="number"]{
     background-color: #4aa44d;
     color: white;
     padding: 0;
-    font-size: 12px; /* Ajustez la taille du texte si nécessaire */
-    
+    font-size: 12px;
+    /* Ajustez la taille du texte si nécessaire */
+
     /* Centrage vertical et horizontal du texte */
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 /* Pour Chrome, Safari, Edge et Opera */
-input[type="number"]::-webkit-inner-spin-button,  
-input[type="number"]::-webkit-outer-spin-button {  
-    -webkit-appearance: none;  
-    margin: 0;  
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Pour Firefox */
-input[type="number"] {  
-    -moz-appearance: textfield;  
+input[type="number"] {
+    -moz-appearance: textfield;
 }
+
 .vertical-line {
     width: 1px;
     /* Largeur du trait */
@@ -109,10 +129,12 @@ input[type="number"] {
     justify-content: flex-start;
     align-items: center;
 }
-progress{
+
+progress {
     width: 30%;
-    height: 20px;  
+    height: 20px;
 }
+
 /* legend {
     height: 30px;
     width: 100%;
@@ -138,9 +160,10 @@ progress{
 
 .radio-buttons input[type="radio"] {
     display: none;
-   
+
 }
-.grilleJs{
+
+.grilleJs {
     margin: 0px 5px 0px 0px;
     display: inline-block;
     /* padding: 10px 20px; */
@@ -151,7 +174,8 @@ progress{
     width: 15px;
     height: 15px;
 }
-.grille{
+
+.grille {
     display: inline-block;
     /* padding: 10px 20px; */
     background-color: #027bff;
@@ -160,7 +184,7 @@ progress{
     /* margin: 5px; */
     width: 15px;
     height: 15px;
-   
+
 }
 
 .radio-buttons input[type="radio"]:checked+label,
@@ -230,8 +254,12 @@ progress{
     flex-direction: column;
     justify-content: space-between;
     width: 95%;
-    height: 98%;
+    height: 99%;
     overflow: hidden;
+}
+
+.padd_bas {
+    padding: 0px 0px 3px 0px;
 }
 
 .txtIntro {

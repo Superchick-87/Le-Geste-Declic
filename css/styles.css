@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
-    font-family: "Open Sans", serif;
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,12 +28,14 @@ legend {
     align-items: center;
     height: 30px;
 }
+
 .containerDeclic {
     display: flex;
-        flex-direction: row;
-        align-content: center;
-        align-items: center;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
 }
+
 .logoDeclic {
     background-repeat: no-repeat;
     background-size: contain;
@@ -41,6 +43,7 @@ legend {
     height: 30px;
     width: 93px;
 }
+
 .logoSo {
     background-repeat: no-repeat;
     background-size: contain;
@@ -48,7 +51,8 @@ legend {
     height: 18px;
     width: 93px;
 }
-.txtLengend{
+
+.txtLengend {
     margin-right: auto;
 }
 
@@ -318,9 +322,10 @@ mark {
 
 /* Au niveau le plus haut du code */
 @media screen and (max-width: 500px) {
- .image{
+    .image {
         background-position: 100% 0%;
-     }
+    }
+
     button {
         display: none;
     }
@@ -331,9 +336,10 @@ mark {
         bottom: 17px;
     }
 }
+
 /* Au niveau le plus haut du code */
 @media screen and (max-width: 400px) {
-    .image{
-           background-position: 100% 0%;
-        }
-   }
+    .image {
+        background-position: 100% 0%;
+    }
+}

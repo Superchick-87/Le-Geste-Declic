@@ -133,7 +133,7 @@
                                     <p id="intro_F_' . $uniqueId . '" class="txtIntro">' . str_replace("*$#*", "</br>", htmlspecialchars($data[1])) . '</p>
                                     <p id="intro_Cap_F_' . $uniqueId . '" class="txtCap">' . str_replace("*$#*", "</br>", htmlspecialchars($data[2])) . '</p>
                                 </div>
-                                <div>
+                                <div class="padd_bas">
                                     <p id="contenu_Gras_F_' . $uniqueId . '" class="txtGras descriptif">' . str_replace("*$#*", "</br>", htmlspecialchars($data[3])) . '</p>
                                     <p id="contenu_GrasGris_F_' . $uniqueId . '" class="txtGrasGris descriptif">' . str_replace("*$#*", "</br>", htmlspecialchars($data[4])) . '</p>
                                     <mark id="contenu_Fond_Vert_F_' . $uniqueId . '" class="descriptif">' . str_replace("*$#*", "</br>", htmlspecialchars($data[5])) . '</mark>
@@ -310,33 +310,33 @@
     <script>
         function exportToJpg(blocId) {
             const now = new Date();
-            const formattedDate = 
-                String(now.getDate()).padStart(2, '0') + "" + 
-                String(now.getMonth() + 1).padStart(2, '0') + "" + 
-                now.getFullYear() + "_" + 
-                String(now.getHours()).padStart(2, '0') + "" + 
-                String(now.getMinutes()).padStart(2, '0') + "" + 
+            const formattedDate =
+                String(now.getDate()).padStart(2, '0') + "" +
+                String(now.getMonth() + 1).padStart(2, '0') + "" +
+                now.getFullYear() + "_" +
+                String(now.getHours()).padStart(2, '0') + "" +
+                String(now.getMinutes()).padStart(2, '0') + "" +
                 String(now.getSeconds()).padStart(2, '0');
 
             let bloc = document.getElementById(blocId);
             domtoimage.toJpeg(bloc, {
-                quality: 1,
-                cacheBust: true
-            })
-            .then(function (dataUrl) {
-                let link = document.createElement("a");
-                link.href = dataUrl;
-                link.download = "Declic_Pict_" + formattedDate + ".jpg";
-                // link.download = "Declic_Pict_" + blocId + ".jpg";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                alert("L'image a été téléchargée !");
-            })
-            .catch(function (error) {
-                console.error('Erreur lors de la capture : ', error.message, error);
-                alert("Une erreur est survenue : " + error.message);
-            });
+                    quality: 1,
+                    cacheBust: true
+                })
+                .then(function(dataUrl) {
+                    let link = document.createElement("a");
+                    link.href = dataUrl;
+                    link.download = "Declic_Pict_" + formattedDate + ".jpg";
+                    // link.download = "Declic_Pict_" + blocId + ".jpg";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    alert("L'image a été téléchargée !");
+                })
+                .catch(function(error) {
+                    console.error('Erreur lors de la capture : ', error.message, error);
+                    alert("Une erreur est survenue : " + error.message);
+                });
         }
     </script>
 
@@ -725,6 +725,7 @@
                 introBold.appendChild(intro_txt_Bold_Cap);
 
                 const txt_bas = document.createElement("div"); //  (contenu_Gras_F_bloc | mark | contenu_Maigre_F_bloc)
+                txt_bas.classList.add("padd_bas");
 
                 containerText_B.appendChild(txt_bas);
 
